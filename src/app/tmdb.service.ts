@@ -14,22 +14,24 @@ export class TmdbService {
   constructor(private http: HttpClient) {}
 
   getRandomMovies(): Observable<any> {
-    return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}`);
+    return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}&language=es`); //AÑADIDO LENGUAJE ESPAÑOL
   }
 
   getAllMovies(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/movie/popular?api_key=${this.apiKey}`);
+    return this.http.get(
+      `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=es`
+    );
   }
 
   searchMovies(query: string): Observable<any> {
     return this.http.get(
-      `${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${query}`
+      `${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${query}&language=es`
     );
   }
 
   getMovieDetails(movieId: number): Observable<any> {
     return this.http.get(
-      `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`
+      `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}&language=es`
     );
   }
 

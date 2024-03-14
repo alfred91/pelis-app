@@ -15,6 +15,7 @@ import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatCardModule } from '@angular/material/card';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatButtonModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

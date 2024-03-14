@@ -1,7 +1,16 @@
 <!-- movie-details.component.html -->
-<div *ngIf="movieDetails">
-  <h2>{{ movieDetails.title }}</h2>
-  <img [src]="'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path" alt="{{movieDetails.title}}">
-  <p>{{ movieDetails.overview }}</p>
-  <!-- Añade más detalles según sea necesario -->
+<div *ngIf="movieDetails" class="movie-details-container">
+  <div class="movie-header">
+    <h1>{{ movieDetails.title }}</h1>
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path" alt="{{movieDetails.title}}"
+      class="movie-poster">
+  </div>
+  <div class="movie-info">
+    <p class="movie-overview">{{ movieDetails.overview }}</p>
+    <p class="movie-overview">Nota: {{movieDetails.vote_average}}</p>
+    <p class="movie-overview">Año: {{movieDetails.release_date}}</p>
+
+
+    <a [href]="movieDetails.homepage" target="_blank" class="movie-link">Visitar página web de la película</a>
+  </div>
 </div>
