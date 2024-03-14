@@ -1,0 +1,7 @@
+<!-- movie-details.component.html -->
+<div *ngIf="movieDetails">
+  <h2>{{ movieDetails.title }}</h2>
+  <img [src]="'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path" alt="{{movieDetails.title}}">
+  <p>{{ movieDetails.overview }}</p>
+  <!-- Añade más detalles según sea necesario -->
+</div>
