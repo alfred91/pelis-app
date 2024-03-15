@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+
 // LLAMADAS A LA API THEMOVIEDB
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,29 @@ export class TmdbService {
 
   constructor(private http: HttpClient) {}
 
+  // Método para obtener un token de solicitud
+  getRequestToken(): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/authentication/token/new?api_key=${this.apiKey}`
+    );
+  }
+
+  // Método para crear una sesión
+  createSession(requestToken: string): Observable<any> {
+    return this.http.post(
+      `${this.apiUrl}/authentication/session/new?api_key=${this.apiKey}`,
+      {
+        request_token: requestToken,
+      }
+    );
+  }
+
+  // SERIES POPULARES
+  getPopularTvShows(): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/tv/popular?api_key=${this.apiKey}&language=es`
+    );
+  }
   // ULTIMOS ESTRENOS
   getNowPlayingMovies(): Observable<any> {
     return this.http.get(
@@ -23,6 +47,13 @@ export class TmdbService {
   getAllMovies(): Observable<any> {
     return this.http.get(
       `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=es`
+    );
+  }
+
+  // SERIES
+  getSerieDetails(serieId: number): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/tv/${serieId}?api_key=${this.apiKey}&language=es`
     );
   }
   // BUSCAR PELICULA

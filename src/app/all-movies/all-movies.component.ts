@@ -37,11 +37,11 @@ export class AllMoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.tmdbService.getAllMovies().subscribe((data) => {
-      this.movies = data.results; // Asegúrate de ajustar esto según la estructura de los datos de la API
+      this.movies = data.results;
     });
   }
 
-  // Método para determinar el color del círculo de la nota basado en el valor de la nota
+  // CAMBIAMOS EL COLOR SEGUN LA PUNTUACIÓN DE LA PELI
   getRatingColor(vote_average: number): string {
     if (vote_average > 7) {
       return '#4CAF50';

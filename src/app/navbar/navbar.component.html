@@ -7,10 +7,13 @@
 
   <span class="spacer"></span>
   <nav>
+    <a mat-button routerLink="/welcome" routerLinkActive="active">LOGIN</a>
     <a mat-button routerLink="/home" routerLinkActive="active">INICIO</a>
     <a mat-button routerLink="/all-movies" routerLinkActive="active">EN TAQUILLA</a>
     <a mat-button routerLink="/search-movies" routerLinkActive="active">BUSQUEDA</a>
   </nav>
+
+  <a mat-button routerLink="/series" routerLinkActive="active">SERIES</a>
   <form class="search-form" (submit)="searchMovies()">
     <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar películas...">
     <button type="submit">Buscar</button>

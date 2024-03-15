@@ -15,6 +15,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { SeriesComponent } from './series/series.component';
+import { SerieDetailsComponent } from './serie-details/serie-details.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,11 @@ import { FooterComponent } from './footer/footer.component';
     SearchMoviesComponent,
     MovieDetailsComponent,
     FooterComponent,
+    LoginComponent,
+    AuthCallbackComponent,
+    WelcomeComponent,
+    SeriesComponent,
+    SerieDetailsComponent,
   ],
   imports: [
     BrowserModule,

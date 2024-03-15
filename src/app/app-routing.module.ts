@@ -4,15 +4,48 @@ import { HomeComponent } from './home/home.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { LoginComponent } from './login/login.component';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { authGuard } from './auth.guard';
+import { SeriesComponent } from './series/series.component';
+import { SerieDetailsComponent } from './serie-details/serie-details.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'search-movies', component: SearchMoviesComponent },
-  { path: 'all-movies', component: AllMoviesComponent },
-  { path: 'movie/:id', component: MovieDetailsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-];
+  // RUTAS PROTEGIDAS CON AUTHGUARD
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  {
+    path: 'search-movies',
+    component: SearchMoviesComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'all-movies',
+    component: AllMoviesComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'movie/:id',
+    component: MovieDetailsComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'series',
+    component: SeriesComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'serie/:id',
+    component: SerieDetailsComponent,
+    canActivate: [authGuard],
+  },
 
+  // RUTAS DESPROTEGIDAS
+  { path: 'login', component: LoginComponent },
+  { path: 'auth-callback', component: AuthCallbackComponent },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
