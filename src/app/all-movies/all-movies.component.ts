@@ -40,4 +40,15 @@ export class AllMoviesComponent implements OnInit {
       this.movies = data.results; // Asegúrate de ajustar esto según la estructura de los datos de la API
     });
   }
+
+  // Método para determinar el color del círculo de la nota basado en el valor de la nota
+  getRatingColor(vote_average: number): string {
+    if (vote_average > 7) {
+      return '#4CAF50';
+    } else if (vote_average > 5) {
+      return '#FFC107';
+    } else {
+      return '#F44336';
+    }
+  }
 }

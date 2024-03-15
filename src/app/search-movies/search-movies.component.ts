@@ -23,8 +23,6 @@ export class SearchMoviesComponent implements OnInit {
   onSearch(query: string): void {
     this.tmdbService.searchMovies(query).subscribe(
       (data) => {
-        // Asegúrate de que la respuesta tenga la estructura esperada,
-        // especialmente si esperas un campo 'results' en los datos.
         this.searchResults = data.results;
       },
       (error) => {

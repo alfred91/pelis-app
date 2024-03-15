@@ -1,26 +1,26 @@
 // app.component.ts
 import { Component } from '@angular/core';
-import { TmdbService } from './tmdb.service'; // Asegúrate de que la ruta sea correcta
+import { TmdbService } from './tmdb.service';
 
 @Component({
- selector: 'app-root',
- templateUrl: './app.component.html',
- styleUrls: ['./app.component.css'],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
- title = 'pelis-app';
- searchResults: any[] = []; // Añade esta propiedad
+  title = 'pelis-app';
+  searchResults: any[] = [];
 
- constructor(private tmdbService: TmdbService) {}
+  constructor(private tmdbService: TmdbService) {}
 
- onSearch(query: string): void {
+  onSearch(query: string): void {
     this.tmdbService.searchMovies(query).subscribe(
       (data) => {
-        this.searchResults = data.results; // Actualiza la propiedad con los resultados de la búsqueda
+        this.searchResults = data.results;
       },
       (error) => {
         console.error('Error al buscar películas:', error);
       }
     );
- }
+  }
 }

@@ -1,19 +1,18 @@
-<!-- navbar.component.html -->
-<nav class="navbar">
-  <div class="navbar-brand">Mi Aplicación de Películas</div>
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/home" routerLinkActive="active">INICIO</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/all-movies" routerLinkActive="active">EN TAQUILLA</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/search-movies" routerLinkActive="active">BUSQUEDA</a>
-    </li>
-  </ul>
+<mat-toolbar color="primary">
+  <div class="navbar-brand">
+    <img src="assets/popcorn.svg" alt="Popcorn Icon" class="navbar-icon"
+      style="filter: drop-shadow(2px 2px 2px #000000);">
+  </div>
+  <h1 style="text-transform: uppercase; text-shadow: 2px 2px 4px #000000;">Mi Aplicación de Películas</h1>
+
+  <span class="spacer"></span>
+  <nav>
+    <a mat-button routerLink="/home" routerLinkActive="active">INICIO</a>
+    <a mat-button routerLink="/all-movies" routerLinkActive="active">EN TAQUILLA</a>
+    <a mat-button routerLink="/search-movies" routerLinkActive="active">BUSQUEDA</a>
+  </nav>
   <form class="search-form" (submit)="searchMovies()">
     <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar películas...">
     <button type="submit">Buscar</button>
   </form>
-</nav>
+</mat-toolbar>

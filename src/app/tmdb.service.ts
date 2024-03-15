@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-
+// LLAMADAS A LA API THEMOVIEDB
 @Injectable({
   providedIn: 'root',
 })
@@ -13,28 +13,31 @@ export class TmdbService {
 
   constructor(private http: HttpClient) {}
 
-  getRandomMovies(): Observable<any> {
-    return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}&language=es`); //AÑADIDO LENGUAJE ESPAÑOL
+  // ULTIMOS ESTRENOS
+  getNowPlayingMovies(): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/movie/now_playing?api_key=${this.apiKey}&language=es`
+    );
   }
-
+  // TODAS LAS PELICULAS
   getAllMovies(): Observable<any> {
     return this.http.get(
       `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=es`
     );
   }
-
+  // BUSCAR PELICULA
   searchMovies(query: string): Observable<any> {
     return this.http.get(
       `${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${query}&language=es`
     );
   }
-
+  // DETALLES
   getMovieDetails(movieId: number): Observable<any> {
     return this.http.get(
       `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}&language=es`
     );
   }
-
+  // ACTUALIZA LA CONSULTA DE BÚSQUEDA
   changeSearchQuery(query: string) {
     this.searchQuerySource.next(query);
   }

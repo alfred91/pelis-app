@@ -5,9 +5,10 @@
     <div *ngFor="let movie of movies" class="movie-card" [routerLink]="['/movie', movie.id]">
       <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{movie.title}}">
       <h2>{{movie.title}}</h2>
-      <p>{{movie.overview}}</p>
-      <p>Año: {{movie.release_date}}</p>
-      <p>Nota: {{movie.vote_average}}</p>
+      <p>Año: {{movie.release_date | date:'yyyy'}}</p>
+      <div class="rating-circle" [ngStyle]="{'background-color': getRatingColor(movie.vote_average)}">
+        {{movie.vote_average}}
+      </div>
     </div>
   </div>
 </div>

@@ -22,14 +22,13 @@ import {
 })
 export class HomeComponent implements OnInit {
   movies: any[] = [];
-
   constructor(private tmdbService: TmdbService) {}
 
   ngOnInit(): void {
     this.tmdbService.getAllMovies().subscribe(
       (data) => {
         if (data && data.results) {
-          this.movies = data.results;
+          this.movies = data.results.slice(0, 16);
         } else {
           console.error(
             'La respuesta del servidor es null o no contiene la propiedad results'
@@ -40,5 +39,16 @@ export class HomeComponent implements OnInit {
         console.error('Error al obtener películas:', error);
       }
     );
+  }
+
+  // Método para determinar el color del círculo de la nota basado en el valor de la nota
+  getRatingColor(vote_average: number): string {
+    if (vote_average >= 8) {
+      return '#4CAF50'; // Verde para notas altas
+    } else if (vote_average >= 5) {
+      return '#FFC107'; // Amarillo para notas medias
+    } else {
+      return '#F44336'; // Rojo para notas bajas
+    }
   }
 }

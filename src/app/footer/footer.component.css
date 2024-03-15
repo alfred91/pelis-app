@@ -1,0 +1,19 @@
+/* footer.component.css */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer i {
+  font-size: 24px;
+  margin-bottom: 0px;
+}
