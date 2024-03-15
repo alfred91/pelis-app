@@ -1,6 +1,7 @@
 <div class="home-container" [@fadeIn]>
   <h1>Bienvenido a Mi Aplicación de Películas</h1>
-  <p>Explora, busca y descubre películas increíbles.</p>
+  <p class="explore-text">Explora, busca y descubre películas increíbles.</p>
+  <p class="series-text">¡Y no olvides las series!</p>
   <div class="movies-container">
     <div *ngFor="let movie of movies" class="movie-card" [routerLink]="['/movie', movie.id]">
       <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{movie.title}}">

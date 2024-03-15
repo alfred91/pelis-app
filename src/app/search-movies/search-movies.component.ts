@@ -12,7 +12,7 @@ export class SearchMoviesComponent implements OnInit {
   constructor(private tmdbService: TmdbService) {}
 
   ngOnInit(): void {
-    // Suscribirse al término de búsqueda actual
+    // SUSCRIPCIÓN AL TÉRMINO DE BÚSQUEDA
     this.tmdbService.currentSearchQuery.subscribe((query) => {
       if (query) {
         this.onSearch(query);
@@ -26,7 +26,7 @@ export class SearchMoviesComponent implements OnInit {
         this.searchResults = data.results;
       },
       (error) => {
-        console.error('Error al buscar películas:', error);
+        console.error('ERROR AL BUSCAR PELÍCULAS:', error);
       }
     );
   }

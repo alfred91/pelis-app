@@ -22,6 +22,7 @@ import { SerieDetailsComponent } from './serie-details/serie-details.component';
 
 @NgModule({
   declarations: [
+    // COMPONENTES DEL PROYECTO
     AppComponent,
     NavbarComponent,
     HomeComponent,
@@ -35,6 +36,7 @@ import { SerieDetailsComponent } from './serie-details/serie-details.component';
     SerieDetailsComponent,
   ],
   imports: [
+    // MÓDULOS IMPORTADOS
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -44,7 +46,13 @@ import { SerieDetailsComponent } from './serie-details/serie-details.component';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [provideAnimationsAsync()],
-  bootstrap: [AppComponent],
+  providers: [
+    // SERVICIOS PROVEEDORES
+    provideAnimationsAsync(),
+  ],
+  bootstrap: [
+    // COMPONENTE PRINCIPAL
+    AppComponent,
+  ],
 })
 export class AppModule {}

@@ -1,21 +1,30 @@
 <mat-toolbar color="primary">
   <div class="navbar-brand">
-    <img src="assets/popcorn.svg" alt="Popcorn Icon" class="navbar-icon"
-      style="filter: drop-shadow(2px 2px 2px #000000);">
+    <a routerLink="/home" style="display: flex; align-items: center; text-decoration: none;">
+      <img src="assets/popcorn.svg" alt="Popcorn Icon" class="navbar-icon"
+        style="filter: drop-shadow(2px 2px 2px #000000);">
+      <h1 style="text-transform: uppercase; text-shadow: 2px 2px 4px #000000; color: white; text-decoration: none;">
+        Filmoteca API Angular</h1>
+    </a>
   </div>
-  <h1 style="text-transform: uppercase; text-shadow: 2px 2px 4px #000000;">Mi Aplicación de Películas</h1>
 
   <span class="spacer"></span>
   <nav>
-    <a mat-button routerLink="/welcome" routerLinkActive="active">LOGIN</a>
-    <a mat-button routerLink="/home" routerLinkActive="active">INICIO</a>
-    <a mat-button routerLink="/all-movies" routerLinkActive="active">EN TAQUILLA</a>
-    <a mat-button routerLink="/search-movies" routerLinkActive="active">BUSQUEDA</a>
+    <a mat-button routerLink="/welcome" routerLinkActive="active"
+      style="text-decoration: none; text-transform: uppercase;">Login</a>
+    <a mat-button routerLink="/home" routerLinkActive="active"
+      style="text-decoration: none; text-transform: uppercase;">Inicio</a>
+    <a mat-button routerLink="/all-movies" routerLinkActive="active"
+      style="text-decoration: none; text-transform: uppercase;">En Taquilla</a>
+    <a mat-button routerLink="/search-movies" routerLinkActive="active"
+      style="text-decoration: none; text-transform: uppercase;">Busqueda</a>
   </nav>
 
-  <a mat-button routerLink="/series" routerLinkActive="active">SERIES</a>
+  <a mat-button routerLink="/series" routerLinkActive="active"
+    style="text-decoration: none; text-transform: uppercase;">Series</a>
   <form class="search-form" (submit)="searchMovies()">
-    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar películas...">
-    <button type="submit">Buscar</button>
+    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar películas..."
+      style="text-transform: uppercase;">
+    <button type="submit" style="text-transform: uppercase;">Buscar</button>
   </form>
 </mat-toolbar>
