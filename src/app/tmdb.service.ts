@@ -14,14 +14,14 @@ export class TmdbService {
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener un token de solicitud
+  // OBTENER EL TOKEN
   getRequestToken(): Observable<any> {
     return this.http.get(
       `${this.apiUrl}/authentication/token/new?api_key=${this.apiKey}`
     );
   }
 
-  // Método para crear una sesión
+  // CREAR UNA SESION
   createSession(requestToken: string): Observable<any> {
     return this.http.post(
       `${this.apiUrl}/authentication/session/new?api_key=${this.apiKey}`,
