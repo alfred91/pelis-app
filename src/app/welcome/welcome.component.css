@@ -5,16 +5,22 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
+  background-image: url("/assets/cine.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .movie-logo {
   width: 150px;
   margin-bottom: 10px;
+  margin-top: -20vh;
 }
 
 h1 {
   margin: 20px 0;
   color: #333;
+  margin-top: -20vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .login-button {
@@ -26,6 +32,8 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  margin-top: -20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login-button:hover {

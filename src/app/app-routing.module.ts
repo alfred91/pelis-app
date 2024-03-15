@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { LoginComponent } from './login/login.component';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { authGuard } from './auth.guard';
@@ -42,7 +41,6 @@ const routes: Routes = [
   },
 
   // RUTAS DESPROTEGIDAS
-  { path: 'login', component: LoginComponent },
   { path: 'auth-callback', component: AuthCallbackComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
