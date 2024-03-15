@@ -14,7 +14,6 @@ export class AuthCallbackComponent implements OnInit {
     private router: Router
   ) {}
 
-  // REDIRECCION A LA PAGINA CUANDO SE OBTIENE EL TOKEN
   ngOnInit(): void {
     const requestToken = this.route.snapshot.queryParams['request_token'];
     if (requestToken) {
