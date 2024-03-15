@@ -12,7 +12,6 @@ export class SearchMoviesComponent implements OnInit {
   constructor(private tmdbService: TmdbService) {}
 
   ngOnInit(): void {
-    // SUSCRIPCIÓN AL TÉRMINO DE BÚSQUEDA
     this.tmdbService.currentSearchQuery.subscribe((query) => {
       if (query) {
         this.onSearch(query);
@@ -20,6 +19,7 @@ export class SearchMoviesComponent implements OnInit {
     });
   }
 
+  // BÚSQUEDA DE PELÍCULAS UTILIZANDO TMDBSERVICE Y LA CONSULTA
   onSearch(query: string): void {
     this.tmdbService.searchMovies(query).subscribe(
       (data) => {

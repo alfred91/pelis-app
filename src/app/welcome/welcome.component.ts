@@ -1,4 +1,3 @@
-// welcome.component.ts
 import { Component } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
 

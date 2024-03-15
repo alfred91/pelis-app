@@ -1,5 +1,3 @@
-// En src/app/series/series.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
 
@@ -12,7 +10,7 @@ export class SeriesComponent implements OnInit {
   series: any[] = [];
 
   constructor(private tmdbService: TmdbService) {}
-
+  // FUNCION PARA PONER EL COLOR EN FUNCION DEL VALOR DE LA NOTA DE LA PELICULA
   getRatingColor(vote_average: number): string {
     if (vote_average > 7) {
       return '#4CAF50';

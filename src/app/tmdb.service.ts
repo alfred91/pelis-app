@@ -20,7 +20,6 @@ export class TmdbService {
       `${this.apiUrl}/authentication/token/new?api_key=${this.apiKey}`
     );
   }
-
   // CREAR UNA SESION
   createSession(requestToken: string): Observable<any> {
     return this.http.post(
@@ -30,7 +29,6 @@ export class TmdbService {
       }
     );
   }
-
   // SERIES POPULARES
   getPopularTvShows(): Observable<any> {
     return this.http.get(
@@ -49,7 +47,6 @@ export class TmdbService {
       `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=es`
     );
   }
-
   // SERIES
   getSerieDetails(serieId: number): Observable<any> {
     return this.http.get(
