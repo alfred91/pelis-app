@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -20,39 +20,34 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SeriesComponent } from './series/series.component';
 import { SerieDetailsComponent } from './serie-details/serie-details.component';
 
-@NgModule({
-  declarations: [
-    // COMPONENTES DEL PROYECTO
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    AllMoviesComponent,
-    SearchMoviesComponent,
-    MovieDetailsComponent,
-    FooterComponent,
-    AuthCallbackComponent,
-    WelcomeComponent,
-    SeriesComponent,
-    SerieDetailsComponent,
-  ],
-  imports: [
-    // MÓDULOS IMPORTADOS
-    BrowserModule,
-    AppRoutingModule,
-    MatToolbarModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-  ],
-  providers: [
-    // SERVICIOS PROVEEDORES
-    provideAnimationsAsync(),
-  ],
-  bootstrap: [
-    // COMPONENTE PRINCIPAL
-    AppComponent,
-  ],
-})
+@NgModule({ declarations: [
+        // COMPONENTES DEL PROYECTO
+        AppComponent,
+        NavbarComponent,
+        HomeComponent,
+        AllMoviesComponent,
+        SearchMoviesComponent,
+        MovieDetailsComponent,
+        FooterComponent,
+        AuthCallbackComponent,
+        WelcomeComponent,
+        SeriesComponent,
+        SerieDetailsComponent,
+    ],
+    bootstrap: [
+        // COMPONENTE PRINCIPAL
+        AppComponent,
+    ], imports: [
+        // MÓDULOS IMPORTADOS
+        BrowserModule,
+        AppRoutingModule,
+        MatToolbarModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule], providers: [
+        // SERVICIOS PROVEEDORES
+        provideAnimationsAsync(),
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}
