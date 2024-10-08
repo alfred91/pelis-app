@@ -1,24 +1,73 @@
+/* General styling */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  z-index: 1000;
+  padding: 0 16px;
 }
 
-.navbar-brand {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.navbar-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  filter: drop-shadow(2px 2px 2px #000000);
-}
 .spacer {
-  flex: 1 1 auto;
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for mobile */
+.menu-button {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+.search-form input {
+  padding: 4px 8px;
+  margin-right: 4px;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #1976d2; /* Same as primary toolbar color */
+    padding: 16px;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.mobile-menu {
+    display: flex;
+  }
+
+  .nav-links nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links form {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-links form input {
+    flex: 1;
+  }
+
+  .navbar-brand h1 {
+    font-size: 1.2rem;
+  }
 }

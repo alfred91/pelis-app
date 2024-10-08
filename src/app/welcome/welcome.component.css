@@ -3,26 +3,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 85vh;
   text-align: center;
   background-image: url("/assets/cine.png");
   background-size: cover;
   background-position: center;
+  padding: 20px; /* Asegura un padding alrededor del contenido */
+  box-sizing: border-box; /* Incluye padding en el cálculo de tamaño */
 }
 
 .movie-logo {
   width: 150px;
   margin-bottom: 10px;
-  margin-top: -20vh;
 }
 
 h1 {
   margin: 20px 0;
-  color: #333;
-  margin-top: -20vh;
+  color: #272727;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Aseguramos que el texto no se desborde en móviles */
+h1 {
+  font-size: 24px; /* Tamaño de fuente más pequeño para móviles */
+  padding: 0 10px; /* Padding para evitar que el texto toque los bordes */
+}
+
+/* Estilos para la botón de inicio de sesión */
 .login-button {
   padding: 10px 20px;
   font-size: 20px;
@@ -32,11 +39,28 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background-color 0.3s ease;
-  margin-top: -20px;
+  margin-top: 10px; /* Ajustamos el margen para mejor alineación */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Hover state para el botón */
 .login-button:hover {
   background-color: #b3003c;
   transform: scale(1.05);
+}
+
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+  .movie-logo {
+    width: 120px; /* Reduce el tamaño del logo en móviles */
+  }
+
+  h1 {
+    font-size: 20px; /* Tamaño de fuente más pequeño en móviles */
+  }
+
+  .login-button {
+    font-size: 18px; /* Tamaño de fuente más pequeño en móviles */
+    padding: 8px 16px; /* Ajusta el padding para móviles */
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
 import { Router } from '@angular/router';
 import {
@@ -33,11 +33,25 @@ import {
 })
 export class NavbarComponent {
   searchQuery: string = '';
+  isMenuOpen: boolean = false;
+  isDesktopView: boolean = true;
 
-  constructor(private tmdbService: TmdbService, private router: Router) {} // INYECTAMOS ROTUER PARA REDIRIGIR A LA PAGINA RESULTADOS CON LOS RESULTADOS
+  constructor(private tmdbService: TmdbService, private router: Router) {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isDesktopView = window.innerWidth > 768;
+    if (this.isDesktopView) {
+      this.isMenuOpen = false;
+    }
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   searchMovies(): void {
     this.tmdbService.changeSearchQuery(this.searchQuery);
-    this.router.navigate(['/search-movies']); // AQUI LO HACEMOS
+    this.router.navigate(['/search-movies']);
   }
 }

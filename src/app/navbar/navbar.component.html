@@ -1,30 +1,29 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="navbar">
   <div class="navbar-brand">
     <a routerLink="/home" style="display: flex; align-items: center;">
       <img src="assets/popcorn.svg" alt="Popcorn Icon" class="navbar-icon"
-        style="filter: drop-shadow(2px 2px 2px #000000);">
-      <h1 style="text-transform: uppercase; text-shadow: 2px 2px 4px #000000; color: white;">
-        Filmoteca API Angular</h1>
+        style="filter: drop-shadow(2px 2px 2px #000000); width: 30px; height: 30px;">
+      <h1 style="text-transform: uppercase; text-shadow: 2px 2px 4px #000000; color: white;">Filmoteca</h1>
     </a>
   </div>
 
   <span class="spacer"></span>
-  <nav>
-    <a mat-button routerLink="/welcome" routerLinkActive="active"
-      style="text-decoration: none; text-transform: uppercase;">Login</a>
-    <a mat-button routerLink="/home" routerLinkActive="active"
-      style="text-decoration: none; text-transform: uppercase;">Inicio</a>
-    <a mat-button routerLink="/all-movies" routerLinkActive="active"
-      style="text-decoration: none; text-transform: uppercase;">En Taquilla</a>
-    <a mat-button routerLink="/search-movies" routerLinkActive="active"
-      style="text-decoration: none; text-transform: uppercase;">Busqueda</a>
-  </nav>
 
-  <a mat-button routerLink="/series" routerLinkActive="active"
-    style="text-decoration: none; text-transform: uppercase;">Series</a>
-  <form class="search-form" (submit)="searchMovies()">
-    <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar películas..."
-      style="text-transform: uppercase;">
-    <button type="submit" style="text-transform: uppercase;">Buscar</button>
-  </form>
+  <!-- Botón de menú visible solo en móviles -->
+  <div class="menu-button" (click)="isMenuOpen = !isMenuOpen">&#9776;</div>
+
+  <!-- Menú de enlaces y formulario de búsqueda -->
+  <div [class.dropdown-menu]="isMenuOpen || isDesktopView" class="nav-links" [ngClass]="{'mobile-menu': isMenuOpen}">
+    <nav>
+      <a mat-button routerLink="/welcome" routerLinkActive="active">Login</a>
+      <a mat-button routerLink="/home" routerLinkActive="active">Inicio</a>
+      <a mat-button routerLink="/all-movies" routerLinkActive="active">En Taquilla</a>
+      <a mat-button routerLink="/search-movies" routerLinkActive="active">Busqueda</a>
+      <a mat-button routerLink="/series" routerLinkActive="active">Series</a>
+    </nav>
+    <form class="search-form" (submit)="searchMovies()">
+      <input type="text" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar películas...">
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
 </mat-toolbar>

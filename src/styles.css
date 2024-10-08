@@ -54,12 +54,12 @@ body {
 
 .movie-card h2 {
   margin-top: 10px;
-  font-size: 1.2em;
+  font-size: 1.2em; /* Ajustar en mobile */
   color: #333;
 }
 
 .movie-card p {
-  font-size: 14px;
+  font-size: 14px; /* Ajustar en mobile */
   color: #666;
 }
 
@@ -73,4 +73,31 @@ body {
   align-items: center;
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* Media Queries para vista móvil */
+@media (max-width: 768px) {
+  .movies-container {
+    padding: 15px; /* Reducir padding en móviles */
+    gap: 20px; /* Ajustar espacio entre tarjetas */
+  }
+
+  .movie-card {
+    max-width: 90%; /* Aumentar el tamaño en móviles */
+    margin: 0 auto; /* Centrar las tarjetas */
+  }
+
+  .movie-card h2 {
+    font-size: 1em; /* Reducir tamaño de fuente para móviles */
+  }
+
+  .movie-card p {
+    font-size: 12px; /* Reducir tamaño de fuente para móviles */
+  }
+
+  .rating-circle {
+    width: 40px; /* Ajustar tamaño del círculo en móviles */
+    height: 40px; /* Ajustar tamaño del círculo en móviles */
+    font-size: 0.8em; /* Ajustar tamaño de fuente en móviles */
+  }
 }
